@@ -1,4 +1,53 @@
-# Client Task C #
+# Client Task C: Product Package Counter #
 # Add your pseudocode to this file below this line: #
+'''
+1. Initialize the product package counter
+2. Set the number of products per package to 2
+3. Set the maximum number of packages per case to 50
+4. Print "Product Package Counter Started."
+5. Print "Counting products by twos up to 50."
+6. Initialize current_count to 2
+7. WHILE current_count <= 50 DO:
+8.     Print "Products Scanned: " + current_count
+9.     Increment current_count by 2
+10. Print "Counting Complete."
+11. Print "Total Products Scanned: " + (current_count - 2)
+12. Print "Total Packages: " + ((current_count - 2) / 2)
+13. Print "Total Cases Needed: " + ceil((current_count - 2) / 2 / 50)
+14. Print "Thank you for using the Product Package Counter."
+'''
 # ------------------------------------------------- #
+# client_c_product_package_counter.py
 
+import math
+
+def product_package_counter():
+    """
+    Client Task C: Product Package Counter
+    """
+    # Initialize constants
+    PRODUCTS_PER_PACKAGE = 2
+    MAX_PACKAGES_PER_CASE = 50
+
+    print("=== Product Package Counter Started ===")
+    print("Counting products by twos up to 50.")
+
+    # Initialize counter
+    current_count = 2
+
+    while current_count <= 50:
+        print(f"Products Scanned: {current_count}")
+        current_count += 2
+
+    print("\nCounting Complete.")
+    total_products_scanned = current_count - 2
+    total_packages = total_products_scanned / PRODUCTS_PER_PACKAGE
+    total_cases_needed = math.ceil(total_packages / MAX_PACKAGES_PER_CASE)
+
+    print(f"Total Products Scanned: {total_products_scanned}")
+    print(f"Total Packages: {int(total_packages)}")
+    print(f"Total Cases Needed: {total_cases_needed}")
+    print("Thank you for using the Product Package Counter.")
+
+if __name__ == "__main__":
+    product_package_counter()

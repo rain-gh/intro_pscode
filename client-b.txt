@@ -1,4 +1,78 @@
-# Client Task B #
+
+
+# Client Task B: Find the Spot #
 # Add your pseudocode to this file below this line: #
+'''
+1. Initialize the mapping application
+2. Set the starting position to (0, 0)
+3. Set the target position to (target_x, target_y)
+4. Initialize a flag to indicate if the target is reached (target_reached = False)
+5. While target_reached is False:
+6.     Print the current position to the player
+7.     Prompt the player to move (north, south, east, west) or exit
+8.     Read the player's input
+9.     If the player's input is 'north':
+10.         Increment the Y-coordinate by 1
+11.     Else if the player's input is 'south':
+12.         Decrement the Y-coordinate by 1
+13.     Else if the player's input is 'east':
+14.         Increment the X-coordinate by 1
+15.     Else if the player's input is 'west':
+16.         Decrement the X-coordinate by 1
+17.     Else if the player's input is 'exit':
+18.         Print "Exiting the application."
+19.         End the program
+20.     Else:
+21.         Print "Invalid direction. Please enter north, south, east, west, or exit."
+22.         Continue to the next iteration
+23.     If the current position equals the target position:
+24.         Print "Congratulations! You have found the spot at (" + target_x + ", " + target_y + ")."
+25.         Set target_reached to True
+26. Print "Thank you for using the Find the Spot application. Goodbye."
+'''
 # ------------------------------------------------- #
 
+
+# client_b_find_the_spot.py
+
+def find_the_spot():
+    # Initialize starting and target positions
+    current_x, current_y = 0, 0
+    target_x, target_y = 5, 5  # Example target position
+    target_reached = False
+
+    print("Welcome to the Find the Spot Application!")
+    print(f"Your starting position is ({current_x}, {current_y}).")
+    print(f"Your target location is ({target_x}, {target_y}).")
+
+    while not target_reached:
+        print(f"\nCurrent Position: ({current_x}, {current_y})")
+        direction = input("Enter direction to move (north, south, east, west) or 'exit' to quit: ").strip().lower()
+
+        if direction == 'north':
+            current_y += 1
+            print("Moved north.")
+        elif direction == 'south':
+            current_y -= 1
+            print("Moved south.")
+        elif direction == 'east':
+            current_x += 1
+            print("Moved east.")
+        elif direction == 'west':
+            current_x -= 1
+            print("Moved west.")
+        elif direction == 'exit':
+            print("Exiting the application.")
+            return
+        else:
+            print("Invalid direction. Please enter north, south, east, west, or exit.")
+            continue
+
+        if (current_x, current_y) == (target_x, target_y):
+            print(f"Congratulations! You have found the spot at ({target_x}, {target_y}).")
+            target_reached = True
+
+    print("Thank you for using the Find the Spot application. Goodbye.")
+
+if __name__ == "__main__":
+    find_the_spot()
